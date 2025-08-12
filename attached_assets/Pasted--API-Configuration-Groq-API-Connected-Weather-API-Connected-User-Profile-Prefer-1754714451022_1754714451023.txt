@@ -1,0 +1,100 @@
+
+🔑 API Configuration
+✅ Groq API: Connected
+
+✅ Weather API: Connected
+
+👤 User Profile
+Preferred Language
+
+English
+Your Location
+
+Wardha,Maharashtra
+Farm Size (acres)
+
+0.10
+
+
+Crops Grown
+
+Cotton
+📊 System Status
+Groq LLM: ❌ Offline (Using fallbacks)
+
+Weather API: ⚠️ Using fallbacks
+
+Web Search: ✅ Available
+
+Vector Database: ✅ Ready
+
+Offline Mode: ✅ Basic guidance available
+
+
+🌾 AgriAI Advisor
+Your AI-Powered Agricultural Assistant
+
+💬 Text Chat
+
+
+🎤 Voice Input
+
+
+📸 Image Analysis
+
+
+📄 Document Upload
+
+
+🚨 Emergency Help
+
+🎤 Voice Input with Multi-language Support
+
+Voice Input Language
+
+English
+🎙️ Browser Microphone (Chrome/Edge recommended)
+
+
+📁 Upload Audio File Alternative
+
+Choose an audio file
+
+No file chosen
+Drag and drop file here
+Limit 200MB per file • WAV, MP3, M4A, OGG
+💬 Voice Input Text Area
+
+Voice Input (speak above or type here)
+
+what is the weather in Wardha Maharashtra and will be my cotton crops safe in that in the current weather 
+
+
+🤖 Response
+📊 Current Weather: • Temperature: 27.4°C • Condition: Mist • Humidity: 84% • Wind: 5.8 km/h
+
+🌤️ 7-Day Forecast: • 2025-08-09: 24.5°C - 28.7°C, Patchy rain nearby • 2025-08-10: 24.3°C - 32.7°C, Patchy rain nearby • 2025-08-11: 25.5°C - 31.0°C, Moderate rain
+
+Agricultural Advice: Based on the current weather conditions and 7-day forecast, I'd like to provide some specific agricultural advice for your cotton crops in Wardha, Maharashtra:
+
+Current Weather (27.4°C, 84% humidity, misty conditions, and 5.8 km/h wind speed):
+
+Monitor crop health: With the misty conditions, it's essential to keep a close eye on your cotton crops for any signs of fungal diseases, such as cotton leaf curl virus or fusarium wilt.
+Maintain soil moisture: The high humidity and misty conditions suggest that the soil may be retaining moisture. Ensure that your irrigation system is functioning correctly to prevent waterlogged soil, which can lead to root rot.
+7-Day Forecast:
+
+Prepare for rain: The forecast indicates a high chance of rain (81-88%) from August 9th to 12th, with moderate to heavy rainfall expected. This will likely lead to waterlogged soil and potential fungal diseases. Take necessary precautions to prevent water damage and ensure good air circulation around your crops.
+Adjust irrigation: With the forecasted rainfall, it's essential to adjust your irrigation schedule to avoid overwatering. Monitor soil moisture levels and adjust your irrigation accordingly.
+Fungicide application: Considering the high chance of rain and potential fungal diseases, it may be beneficial to apply fungicides to your cotton crops to prevent infections.
+Monitor for pests: The humid conditions and rain may attract pests like aphids, whiteflies, and spider mites. Regularly inspect your crops for any signs of pest infestation and take necessary action to control them.
+Watch for wind damage: Although the wind speed is relatively low (5.8 km/h), strong gusts can still cause damage to your crops. Ensure that your crops are well-supported and secured to prevent damage.
+Additional Tips:
+
+Keep records: Maintain accurate records of weather conditions, crop health, and any pest or disease issues to help you make informed decisions for future farming activities.
+Consult local experts: If you're unsure about any aspect of crop management or pest control, consult local agricultural experts or extension services for guidance.
+By following these recommendations, you can minimize the risks associated with the current weather conditions and 7-day forecast, ensuring the health and productivity of your cotton crops.
+
+
+
+📜 Conversation History
+[04:40:16] Voice: what is the weather in Wardha Maharashtra and will...

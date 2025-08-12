@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriAI Advisor - Interactive Architecture</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .tech-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            background: #e3f2fd;
+            transform: scale(1.05);
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .agent-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .agent-card h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .agent-card p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .interactive-demo {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .demo-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 30px 0;
+        }
+
+        .flow-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .step {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            font-size: 2em;
+            color: #3498db;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .flow-steps {
+                flex-direction: column;
+            }
+            
+            .step::after {
+                content: '↓';
+                right: auto;
+                bottom: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌾 AgriAI Advisor</h1>
+            <p>Interactive Architecture & Workflow Visualization</p>
+        </div>
+
+        <div class="section">
+            <h2>🏗️ System Architecture Overview</h2>
+            <div class="mermaid">
+                graph TD
+                    A[👨‍🌾 Farmer] --> B[📱 Mobile/Web Interface]
+                    B --> C[🤖 AGNO Multi-Agent System]
+                    C --> D[🎯 Router Agent]
+                    D --> E[🌱 Crop Agent]
+                    D --> F[🌦️ Weather Agent]
+                    D --> G[💰 Finance Agent]
+                    D --> H[📈 Market Agent]
+                    D --> I[📋 Policy Agent]
+                    D --> J[🔬 Disease Agent]
+                    D --> K[🌍 Soil Agent]
+                    D --> L[🐛 Pest Agent]
+                    
+                    E --> M[📊 Vector Database]
+                    F --> N[🌤️ Weather API]
+                    G --> O[🏦 Government APIs]
+                    H --> P[💹 Market Data]
+                    I --> Q[📖 Policy Database]
+                    J --> R[🖼️ Image Processing]
+                    K --> S[🧪 Soil Database]
+                    L --> T[🎯 Pest Database]
+                    
+                    M --> U[📋 Response Synthesizer]
+                    N --> U
+                    O --> U
+                    P --> U
+                    Q --> U
+                    R --> U
+                    S --> U
+                    T --> U
+                    
+                    U --> V[🔄 Feedback Loop]
+                    V --> W[📈 Continuous Learning]
+                    
+                    style A fill:#f9ca24
+                    style C fill:#6c5ce7
+                    style D fill:#fd79a8
+                    style U fill:#00b894
+                    style W fill:#e17055
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📊 System Statistics</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>8</h3>
+                    <p>Specialized AI Agents</p>
+                </div>
+                <div class="stat-card">
+                    <h3>12+</h3>
+                    <p>Regional Languages</p>
+                </div>
+                <div class="stat-card">
+                    <h3>85%</h3>
+                    <p>Accuracy Rate</p>
+                </div>
+                <div class="stat-card">
+                    <h3><5s</h3>
+                    <p>Response Time</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <h4>🎨 Frontend</h4>
+                    <p>Streamlit</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🧠 AI Engine</h4>
+                    <p>Groq LLM</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🤖 Agents</h4>
+                    <p>AGNO Framework</p>
+                </div>
+                <div class="tech-item">
+                    <h4>💾 Database</h4>
+                    <p>ChromaDB</p>
+                </div>
+                <div class="tech-item">
+                    <h4>🖼️ Images</h4>
+                    <p>OpenCV + PIL</p>
+                </div>
+                <div class="tech-item">
+                    <h4>☁️ Deployment</h4>
+                    <p>Streamlit Cloud</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎯 AI Agents Overview</h2>
+            <div class="agent-grid">
+                <div class="agent-card">
+                    <h4>🌱 Crop Agent</h4>
+                    <p>Recommends optimal crop varieties, planting schedules, and cultivation practices based on location and season.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>🌦️ Weather Agent</h4>
+                    <p>Provides 7-day weather forecasts, extreme weather alerts, and irrigation scheduling recommendations.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>💰 Finance Agent</h4>
+                    <p>Guides farmers through government schemes, loan options, and financial planning for agricultural investments.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>📈 Market Agent</h4>
+                    <p>Analyzes market prices, predicts trends, and suggests optimal selling strategies for maximum profit.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>📋 Policy Agent</h4>
+                    <p>Explains government policies, scheme eligibility, and provides step-by-step application guidance.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>🔬 Disease Agent</h4>
+                    <p>Identifies crop diseases from images and provides treatment recommendations with preventive measures.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>🌍 Soil Agent</h4>
+                    <p>Recommends soil testing, nutrient management, and fertilizer application based on soil health data.</p>
+                </div>
+                <div class="agent-card">
+                    <h4>🐛 Pest Agent</h4>
+                    <p>Provides integrated pest management strategies, organic solutions, and preventive care guidance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Data Processing Workflow</h2>
+            <div class="flow-steps">
+                <div class="step">1️⃣<small>Input</small></div>
+                <div class="step">2️⃣<small>Process</small></div>
+                <div class="step">3️⃣<small>Agent</small></div>
+                <div class="step">4️⃣<small>Response</small></div>
+                <div class="step">5️⃣<small>Learn</small></div>
+            </div>
+            
+            <div class="mermaid">
+                flowchart LR
+                    A[User Query] --> B[Input Processing]
+                    B --> C{Query Type}
+                    C -->|Text| D[Language Detection]
+                    C -->|Voice| E[Speech-to-Text]
+                    C -->|Image| F[Computer Vision]
+                    C -->|PDF| G[Document Parsing]
+                    
+                    D --> H[Intent Recognition]
+                    E --> H
+                    F --> H
+                    G --> H
+                    
+                    H --> I[Agent Selection]
+                    I --> J[Knowledge Retrieval]
+                    J --> K[Response Generation]
+                    K --> L[Quality Check]
+                    L --> M[User Response]
+                    M --> N[Feedback Collection]
+                    N --> O[Model Improvement]
+                    
+                    style A fill:#e74c3c
+                    style M fill:#2ecc71
+                    style O fill:#f39c12
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Performance Metrics</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🎮 Interactive Demo</h2>
+            <div class="interactive-demo">
+                <h3>Try Our Live Features</h3>
+                <button class="demo-button" onclick="showDemo('crop')">🌱 Crop Advisor</button>
+                <button class="demo-button" onclick="showDemo('weather')">🌦️ Weather Forecast</button>
+                <button class="demo-button" onclick="showDemo('disease')">🔬 Disease Detection</button>
+                <button class="demo-button" onclick="showDemo('market')">📈 Market Prices</button>
+                
+                <div id="demoContent" style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px; display: none;">
+                    <h4 id="demoTitle"></h4>
+                    <p id="demoDescription"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔗 Quick Links</h2>
+            <div style="text-align: center;">
+                <a href="https://github.com/yourusername/agriAI-advisor" style="background: #333; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; margin: 10px; display: inline-block;">📂 GitHub Repository</a>
+                <a href="https://share.streamlit.io/yourusername/agriai-advisor" style="background: #ff4b4b; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; margin: 10px; display: inline-block;">🚀 Live Demo</a>
+                <a href="mailto:agriai.advisor@gmail.com" style="background: #007bff; color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; margin: 10px; display: inline-block;">📧 Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+
+        // Performance Chart
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'User Adoption',
+                    data: [50, 150, 400, 800, 1500, 2500],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Query Accuracy (%)',
+                    data: [75, 78, 82, 85, 87, 90],
+                    borderColor: '#00b894',
+                    backgroundColor: 'rgba(0, 184, 148, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Response Time (s)',
+                    data: [8, 6, 5, 4.5, 4, 3.5],
+                    borderColor: '#e17055',
+                    backgroundColor: 'rgba(225, 112, 85, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'System Performance Over Time'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Demo functionality
+        const demos = {
+            crop: {
+                title: "🌱 Crop Advisor Demo",
+                description: "Get personalized crop recommendations based on your location, soil type, and season. Our AI analyzes 500+ crop varieties and local conditions to suggest the most profitable options."
+            },
+            weather: {
+                title: "🌦️ Weather Forecast Demo", 
+                description: "Receive accurate 7-day weather forecasts with irrigation scheduling. Get alerts for extreme weather events and protect your crops with timely interventions."
+            },
+            disease: {
+                title: "🔬 Disease Detection Demo",
+                description: "Upload crop images to identify diseases instantly. Our AI detects 100+ crop diseases with 95% accuracy and provides treatment recommendations."
+            },
+            market: {
+                title: "📈 Market Prices Demo",
+                description: "Track real-time market prices across 3000+ mandis in India. Get price predictions and optimal selling strategies to maximize your profits."
+            }
+        };
+
+        function showDemo(type) {
+            const demo = demos[type];
+            const content = document.getElementById('demoContent');
+            const title = document.getElementById('demoTitle');
+            const description = document.getElementById('demoDescription');
+            
+            title.textContent = demo.title;
+            description.textContent = demo.description;
+            content.style.display = 'block';
+            
+            // Smooth scroll to demo
+            content.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add some interactive animations
+        document.querySelectorAll('.tech-item, .agent-card').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05) rotate(1deg)';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+🔑 API Configuration
+✅ Groq API: Connected
+
+✅ Weather API: Connected
+
+👤 User Profile
+Preferred Language
+
+English
+Your Location
+
+Kharagpur,West Bengal
+Farm Size (acres)
+
+0.20
+
+
+Crops Grown
+
+Cotton
+📊 System Status
+Groq LLM: ❌ Offline (Using fallbacks)
+
+Weather API: ⚠️ Using fallbacks
+
+Web Search: ✅ Available
+
+Vector Database: ✅ Ready
+
+Offline Mode: ✅ Basic guidance available
+
+
+🌾 AgriAI Advisor
+Your AI-Powered Agricultural Assistant
+
+💬 Text Chat
+
+
+🎤 Voice Input
+
+
+📸 Image Analysis
+
+
+📄 Document Upload
+
+
+🚨 Emergency Help
+
+Ask your agricultural questions in natural language:
+
+Your Question
+
+will there be rain in coming week ..will our cotton farm will survive in such season in our reagion 
+
+🤖 Response
+📊 Current Weather: • Temperature: 32.6°C • Condition: Sunny • Humidity: 55% • Wind: 13.3 km/h
+
+🌤️ 7-Day Forecast: • 2025-08-09: 25.6°C - 35.1°C, Patchy rain nearby • 2025-08-10: 26.8°C - 34.6°C, Patchy rain nearby • 2025-08-11: 26.8°C - 36.4°C, Patchy rain nearby
+
+🌾 Agricultural Advice (Confidence: 80%):
+
+Based on the provided weather data and agricultural context, here's specific advice for the farmer:
+
+Immediate Actions (Next 24-48 hours):
+
+Monitor weather updates closely: Keep a close eye on the 7-day forecast and weather updates to stay informed about the expected rain and temperature conditions.
+Apply mulch or cover crops: Apply a thin layer of mulch or cover crops to the soil to retain moisture, suppress weeds, and regulate soil temperature.
+Water carefully: Water the cotton crop carefully, taking into account the expected rain in the next few days. Avoid overwatering, as this can lead to root rot and other issues.
+Check for pests and diseases: Inspect the crop regularly for signs of pests or diseases, and take action promptly if any issues are detected.
+Risks to Watch For:
+
+Drought stress: With the current temperature above the optimal range for cotton (32°C), there is a risk of drought stress. Monitor the crop's water status and adjust irrigation accordingly.
+Fungal diseases: The expected rain and high humidity may lead to fungal diseases. Keep an eye out for signs of disease and apply fungicides if necessary.
+Pests: The warm and humid conditions may attract pests like aphids, whiteflies, and spider mites. Monitor the crop regularly and apply pesticides if necessary.
+Protective Measures:
+
+Soil conservation: Implement soil conservation measures like contour farming, terracing, or strip cropping to reduce soil erosion and retain moisture.
+Crop rotation: Consider crop rotation to break the disease cycle and reduce pest pressure.
+Integrated Pest Management (IPM): Implement IPM practices to minimize the use of pesticides and reduce the risk of pesticide resistance.
+Crop insurance: Consider purchasing crop insurance to protect against crop losses due to weather-related events.
+Additional Tips:
+
+Keep the farm clean: Maintain a clean farm environment to reduce the risk of pest and disease buildup.
+Monitor weather forecasts: Stay informed about weather forecasts and adjust farm activities accordingly.
+Consult local experts: Consult local agricultural experts or extension services for specific advice tailored to the region and farm conditions.
+By following these recommendations, the farmer can minimize risks and optimize crop growth and yield in the Kharif season.
+
+📊 Context Used: • Farm Profile: 0.2 acres, Cotton • Regional Data: Kharagpur,West Bengal climate and soil conditions • Seasonal Calendar: Current month recommendations • Risk Assessment: Weather impact analysis for your crops
+
+💡 Reasoning: Based on current weather data from WeatherAPI • Considered specific requirements for Cotton crops • Integrated regional climate patterns for Kharagpur,West Bengal • Applied seasonal agricultural calendar recommendations
+
+
+📜 Conversation History
+[04:47:46] Text: will there be rain in coming week ..will our cotto...

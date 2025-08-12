@@ -1,0 +1,81 @@
+USER INPUT (Text / Voice / Image / PDF / Location)
+    └──➞ Input Handling Layer
+            ├─➞ [1.1] Voice Input:
+            │       └─➞ STT (Speech-to-Text) using Whisper ASR (offline model) for local language support
+            ├─➞ [1.2] Language Detection:
+            │       └─➞ Language ID + Transliteration via IndicNLP
+            ├─➞ [1.3] Image Input:
+            │       └─➞ Image pre-processing ➞ segmentation (Detect crop region/disease) 
+            │                 ➞ classification using Vision Transformers or YOLOv8
+            ├─➞ [1.4] PDF Upload:
+            │       └─➞ Extract context (Agri policies, market reports, government schemes) using PDFminer or Unstructured.io
+            ├─➞ [1.5] Location/Profile Info:
+            │       └─➞ Capture GPS/location coordinates or user-entered region (via Profile Section)
+            │                 ➞ Used for geo-specific retrieval (weather, soil, mandi data)
+            └─➞ [1.6] Vectorization & Storage:
+                    └─➞ Embed cleaned content into FAISS/Qdrant vector database
+
+PREPROCESSING LAYER
+    └─➞ [2.1] Query Normalization:
+            ├─➞ Noise removal, Unicode normalization
+            ├─➞ Code-switched sentence simplification
+    └─➞ [2.2] Query Understanding:
+            ├─➞ Entity Recognition (crop = "paddy", location = "Satara")
+            ├─➞ Intent Classification (Weather, Finance, Soil Health, Market)
+            └─➞ Semantic Parsing (e.g., date range, risk factor)
+
+RETRIEVAL & CONTEXT ENRICHMENT
+    └─➞ [3.1] Context-Aware Retrieval (RAG):
+            ├─➞ Vector DB search for documents (e.g., PM-Kisan scheme details, ICAR research)
+            ├─➞ Tool routing via semantic similarity of query to knowledge types
+            └─➞ Time-based + geo-based filtering (e.g., most recent mandi price bulletin for user's district)
+
+MULTIMODAL AGENTIC ENGINE (LLM + TOOLS + MEMORY)
+    └─➞ [4.1] Central Planner Agent (CrewAI or LangGraph):
+            ├─➞ Schedules tasks based on query type, passes subtasks to agents
+            ├─➞ Tracks memory across dialogue turns (if permitted)
+            └─➞ Maintains grounding logs (traceable steps)
+    └─➞ [4.2] Specialized Sub-Agents:
+            ├─➞ Crop Advisory Agent
+            │       └─➞ Uses agronomic calendars + soil DB + irrigation patterns
+            ├─➞ Weather Agent
+            │       └─➞ Queries IMD or NOAA APIs for next 10-day forecast
+            ├─➞ Policy Agent
+            │       └─➞ Parses government PDFs / websites for latest schemes
+            ├─➞ Finance Agent
+            │       └─➞ Explains agri loan interest rates, eligibility for subsidies
+            ├─➞ Market Agent
+            │       └─➞ Pulls mandi prices from AgMarkNet or eNAM
+            ├─➞ Image Analysis Agent
+            │       └─➞ Detects crop diseases / pest infestation via CNN or SAM + classifier
+            ├─➞ PDF Summarization Agent
+            │       └─➞ Summarizes relevant clauses from lengthy agri policy documents
+            └─➞ Geo Context Agent
+                    └─➞ Adds location-specific metadata to enrich response accuracy
+
+INFERENCE & COMPOSITION
+    └─➞ [4.3] Reasoning Engine:
+            ├─➞ Toolformer or ReAct pattern: multi-hop logic
+            ├─➞ Handles contradictions across sources
+            └─➞ Adds source links and certainty score
+
+OUTPUT POST-PROCESSING
+    └─➞ [5.1] Answer Simplification:
+            ├─➞ Rewrite technical content in Grade 6–8 reading level
+            ├─➞ Local idioms and terms inserted via custom glossary
+    └─➞ [5.2] Multimodal Response Generation:
+            ├─➞ Text Answer
+            ├─➞ Audio Answer using TTS (OpenTTS / Coqui)
+            ├─➞ Visuals (crop health heatmaps, price graphs)
+            └─➞ Alert/WARNING tag if hallucination risk is detected
+
+DELIVERY TO USER
+    └─➞ [6.1] Interface:
+            ├─➞ Flutter Mobile App (Hindi/Marathi/Gujarati/...)
+            ├─➞ LlamaIndex chat endpoint with fallback logic
+            ├─➞ Feedback Collector:
+            │       ├─➞ Thumbs up/down + optional correction
+            │       └─➞ Used for fine-tuning and hallucination monitoring
+            └─➞ Offline Capabilities:
+                    ├─➞ Caches responses and allows voice Q&A offline
+                    └─➞ Optionally syncs via SMS or IVR for ultra-low-connectivity zones

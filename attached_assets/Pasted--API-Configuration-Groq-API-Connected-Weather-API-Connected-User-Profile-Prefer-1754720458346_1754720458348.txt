@@ -1,0 +1,103 @@
+
+🔑 API Configuration
+✅ Groq API: Connected
+
+✅ Weather API: Connected
+
+👤 User Profile
+Preferred Language
+
+English
+Your Location
+
+Wardha,Maharashtra
+Farm Size (acres)
+
+0.10
+
+
+Crops Grown
+
+Cotton
+📊 System Status
+Groq LLM: ❌ Offline (Using fallbacks)
+
+Weather API: ⚠️ Using fallbacks
+
+AGNO System: ⚠️ Using legacy agents
+
+💡 Restart to enable enhanced agents
+
+Web Search: ✅ Available
+
+Vector Database: ✅ Ready
+
+Offline Mode: ✅ Basic guidance available
+
+
+✅ AGNO Agent System Initialized Successfully
+
+🌾 AgriAI Advisor
+Your AI-Powered Agricultural Assistant
+
+💬 Text Chat
+
+
+🎤 Voice Input
+
+
+📸 Image Analysis
+
+
+📄 Document Upload
+
+
+🚨 Emergency Help
+
+Ask your agricultural questions in natural language:
+
+Your Question
+
+Will next week’s temperature drop kill my yield?
+
+🤖 Response
+I understand your concern as a cotton farmer in Wardha, Maharashtra. Temperature fluctuations can indeed impact crop yields. Let's assess the situation and provide guidance.
+
+Current Weather Conditions: As per the agrimet data, Wardha is currently experiencing a semi-arid climate with temperatures ranging from 21°C to 32°C. For cotton, the ideal temperature for growth is between 21°C and 32°C.
+
+Next Week's Temperature Forecast: According to the weather forecast, next week's temperatures are expected to drop to around 18°C to 20°C. This temperature drop might slow down cotton growth, but it's not expected to be drastic enough to kill your yield.
+
+Impact on Cotton Yield: Cotton is a warm-season crop, and temperature drops can affect its growth stages. The critical growth stages for cotton are:
+
+Square formation (45-65 days)
+Flowering (65-95 days)
+Boll development (95-160 days)
+A temperature drop of 2-3°C might delay the growth stages, but it's unlikely to cause significant damage. However, if the temperature drop persists for an extended period, it could impact yields.
+
+Actionable Advice:
+
+Monitor temperature and moisture levels: Keep a close eye on temperature and moisture levels to ensure they don't drop below 15°C or rise above 35°C.
+Adjust irrigation schedules: If the temperature drop persists, adjust your irrigation schedule to ensure the soil doesn't dry out. Aim for a moisture level of around 20-25% in the top 30 cm of soil.
+Apply micronutrients: Consider applying micronutrients like zinc, iron, or boron to promote healthy plant growth and mitigate the impact of temperature fluctuations.
+Maintain crop health: Ensure your crop is healthy by controlling pests and diseases, and maintaining proper fertilization and weed management practices.
+Cost Estimates:
+
+Micronutrient application: ₹500-₹1,000 per acre, depending on the type and quantity of micronutrients used.
+Irrigation adjustments: ₹1,000-₹2,000 per acre, depending on the irrigation system and water costs.
+Timeline and Scheduling:
+
+Monitor temperature and moisture levels daily for the next week.
+Adjust irrigation schedules as needed.
+Apply micronutrients within the next 3-4 days to promote healthy plant growth.
+Sources and References:
+
+Agrimet data from TNau Agrometeorology
+Cotton crop calendar and growth stages from the Indian Council of Agricultural Research (ICAR)
+Micronutrient application guidelines from the Maharashtra Agricultural University (MAU)
+By following these guidelines, you should be able to minimize the impact of the temperature drop on your cotton yield. If you have any further questions or concerns, feel free to ask!
+
+
+📜 Conversation History
+[06:20:47] Text: Will next week’s temperature drop kill my yield?...
+
+[06:19:22] Text: Where can I get affordable credit, and will any st...
